@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tasks</h1>
+
+
+<div class="card">
+  <div class="card-body">
+
+
+    <% @tasks.each do |task| %>
+
+    <ul class="list-group">
+      <li class="list-group-item"><%= task.title %>
+        <%= task.description %>
+        <%= task.due_date %>
+        <%= link_to 'X', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+        
+      </li>
+    </ul>
+
+    <% end %>
+  </tbody>
+</table>
+
+</div>
+</div>
+
+<br>
+
+<%= link_to 'New Task', new_task_path %>
+
+
+<!--       <li class="list-group-item"><%#= link_to 'Edit', edit_task_path(task), class:" btn btn-primary" %></li> -->
+
+<li class="list-group-item"><%= link_to 'Show', task, class:" btn btn-primary" %></li>
+
