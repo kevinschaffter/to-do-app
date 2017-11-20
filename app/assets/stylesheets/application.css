@@ -14,3 +14,8 @@
  *= require_self
  *= require font-awesome
  */
+
+ .card-body {
+   width: 40em;
+   margin: auto; 
+ }
