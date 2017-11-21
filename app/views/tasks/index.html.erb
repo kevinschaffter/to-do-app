@@ -1,33 +1,41 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tasks</h1>
+<div class="tasks">
+  <div class="card">
+    <div class="card-body">
 
+      <h1 class="title">To Do</h1>
+      
+      <div class="item-card">
+        <ul class="list-group">
+          <% @tasks.each do |task| %>
+          <li class="list-group-item items" data-id="<%= task.id %>" >
 
-<div class="card">
-  <div class="card-body">
+            <span class="id-title"><%= task.title %></span>
+            <% if task.due_date < Time.now -%>
+            <span class="due-date">Due <%= distance_of_time_in_words(task.due_date, Time.now) %> ago</span>
+            <% else -%>
+            Due in <%= distance_of_time_in_words(task.due_date, Time.now) %>
+            <% end -%>
+            <%#= task.due_date %>
+            <%= link_to 'X', task, class: "close", method: :delete, data: { confirm: 'Are you sure?' } %>
+          </li>
+          <% end %>
+        </ul>
+        <%= link_to new_task_path do %>
+          <div class="add-btn"><div>+</div></div>
+        <% end %>
 
+      </div>
 
-    <% @tasks.each do |task| %>
-
-    <ul class="list-group">
-      <li class="list-group-item"><%= task.title %>
-        <%= task.description %>
-        <%= task.due_date %>
-        <%= link_to 'X', task, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-      </li>
-    </ul>
-
-    <% end %>
-  </tbody>
-</table>
-
+    </tbody>
+  </table>
+  
 </div>
 </div>
 
 <br>
-
-<%= link_to 'New Task', new_task_path %>
+</div>
 
 
 <!--       <li class="list-group-item"><%#= link_to 'Edit', edit_task_path(task), class:" btn btn-primary" %></li> -->

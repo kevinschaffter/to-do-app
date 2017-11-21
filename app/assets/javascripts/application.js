@@ -11,5 +11,16 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
 //= require_tree .
+
+
+$(() => {
+
+
+    $('li').click(function() {
+      id = $(this).data("id")
+      window.location.href='/tasks/'+ id
+    });
+
+
+});
