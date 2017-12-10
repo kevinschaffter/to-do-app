@@ -1,22 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="card show-card">
+  <div class="show">
+    <H1>
+      <%= @task.title %>
+    </H1>
+    
+    <p>
+      <strong>Description:</strong>
+      <%= @task.description %>
+    </p>
+    
+    <% if @task.due_date.present? %>
+    <p>
+      <strong>Due date:</strong>
+      <%= @task.due_date %>
+    </p>
+    <% end %>
 
-
-<div class="show">
-  <p>
-    <strong>Title:</strong>
-    <%= @task.title %>
-  </p>
-  
-  <p>
-    <strong>Description:</strong>
-    <%= @task.description %>
-  </p>
-  
-  <p>
-    <strong>Due date:</strong>
-    <%= @task.due_date %>
-  </p>
-  
-  <%= link_to 'Edit', edit_task_path(@task), class: "btn btn-danger" %> |
-  <%= link_to 'Back', tasks_path, class: "btn btn-success" %>
+    <hr class="button-hr">
+    
+    <%= link_to 'Edit', edit_task_path(@task), class: "btn btn-danger" %> |
+    <%= link_to 'Back', tasks_path, class: "btn btn-success" %>
+  </div>
 </div>

@@ -13,10 +13,13 @@
 
 <div class="field">
 
-  <div class="date-container">
+  <div class="form-group">
     <%= form.text_field :title, id: :task_title, class: 'task-input', placeholder: 'Add a To Do Item' %>
     <%= form.text_field :due_date, id: :task_due_date, 'data-provide' => 'datepicker', 'data-date-autoclose' => 'true', class: "calendar", placeholder: "Due Date" %>
     <%= fa_icon 'calendar' %>
+    <%= form.text_field :description, id: :task_description, class: "form-control description-field", placeholder: 'Description' %>
+
+
   </div>
   <%= form.submit id: "submit_button", style: "display: none" %>
 </div>

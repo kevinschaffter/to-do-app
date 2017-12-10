@@ -10,17 +10,29 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require bootstrap-datepicker
 //= require rails-ujs
+//= require turbolinks
 //= require_tree .
 
+$(document).on('turbolinks:load', function(){
 
-$(() => {
+  console.log('document is ready', new Date());
+  $('#task_name').focus();
 
+  $(document).keypress(function (e) {
+   var key = e.which;
+   if(key == 13)  // the enter key code
+    {
+      $('#submit_button').click();
+      return false;  
+    }
+  });   
 
-    $('li').click(function() {
+  $('li').click(function() {
       id = $(this).data("id")
       window.location.href='/tasks/'+ id
     });
-
 
 });

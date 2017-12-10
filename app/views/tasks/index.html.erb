@@ -1,10 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <div class="tasks">
   <div class="card">
     <div class="card-body">
 
       <h1 class="title">To Do</h1>
+
+      <%= render 'form', task: @task %>
       
       <div class="item-card">
         <ul class="list-group">
@@ -12,19 +12,26 @@
           <li class="list-group-item items" data-id="<%= task.id %>" >
 
             <span class="id-title"><%= task.title %></span>
-            <% if task.due_date < Time.now -%>
-            <span class="due-date">Due <%= distance_of_time_in_words(task.due_date, Time.now) %> ago</span>
+            
+            <%# if task.due_date.present? %>
+            <% if !!task.due_date and task.due_date < Time.now -%>
+            <span class="due-date">
+              Due <%= distance_of_time_in_words(task.due_date, Time.now) %> ago
+            </span>
             <% else -%>
-            Due in <%= distance_of_time_in_words(task.due_date, Time.now) %>
+            <span class="due-date">
+              <% if !!task.due_date %>
+              Due in <%= distance_of_time_in_words(task.due_date, Time.now) %>
+              <% end %>
+            </span>
             <% end -%>
+            <%# end %>
+
             <%#= task.due_date %>
             <%= link_to 'X', task, class: "close", method: :delete, data: { confirm: 'Are you sure?' } %>
           </li>
           <% end %>
         </ul>
-        <%= link_to new_task_path do %>
-          <div class="add-btn"><div>+</div></div>
-        <% end %>
 
       </div>
 
