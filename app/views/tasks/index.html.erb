@@ -7,9 +7,9 @@
       <%= render 'form', task: @task %>
       
       <div class="item-card">
-        <ul class="list-group">
-          <% @tasks.each do |task| %>
-          <li class="list-group-item items" data-id="<%= task.id %>" >
+        <ul class="list-group sortable">
+          <% @tasks.each_with_sortable_id do |task, sortable_id| %>
+          <li class="list-group-item items" data-id="<%= task.id %>" id="<%= sortable_id %>" >
 
             <span class="id-title"><%= task.title %></span>
             

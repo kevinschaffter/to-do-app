@@ -11,8 +11,10 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-datepicker
 //= require rails-ujs
+//= require jquery-ui/widgets/sortable
+//= require rails_sortable
+//= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .
 
@@ -34,5 +36,9 @@ $(document).on('turbolinks:load', function(){
       id = $(this).data("id")
       window.location.href='/tasks/'+ id
     });
+
+  $(function() {
+    $('.sortable').railsSortable();
+  });
 
 });
