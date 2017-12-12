@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20171211223307) do
     t.date "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sort"
   end
 
 end

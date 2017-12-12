@@ -25,6 +25,8 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
+    @task.due_date = DateTime.strptime(params[:task][:due_date], '%m/%d/%Y ')
+
     respond_to do |format|
       if @task.save
         format.html { redirect_to tasks_url }
