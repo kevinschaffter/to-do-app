@@ -35,14 +35,14 @@ body {
 }
 
 .id-title {
-  width: 30%;
+  width: 66%;
   float: left;
   font-weight: 700;
 }
 
 .due-date {
   text-align: right;
-  width: 60%;
+  width: 22%;
   margin-right: 20px;
 }
 
